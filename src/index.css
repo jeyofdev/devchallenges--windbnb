@@ -167,7 +167,8 @@ h6 {
     font-weight: 700;
 }
 
-p {
+p,
+input {
     font-size: 0.8rem;
     line-height: 1.1;
 }
@@ -176,4 +177,17 @@ p {
     p {
         font-size: 0.9rem;
     }
+}
+
+input {
+    font-family: var(--font-family-secondary);
+    font-style: normal;
+    font-weight: normal;
+    color: var(--color-dark);
+}
+
+input,
+button {
+    background: transparent;
+    border: none;
 }
