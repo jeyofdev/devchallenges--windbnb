@@ -1,8 +1,13 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 .footer p {
     font-weight: 500;
     color: var(--color-ultra-light);
     text-align: center;
-    margin-top: 101px;
     margin-bottom: 26px;
 }
 

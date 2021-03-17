@@ -93,6 +93,11 @@ const Modal = ({ isShow }) => {
                                     onClick={() => {
                                         updateRooms();
                                         displayModal();
+                                        setShowOption({
+                                            ...showOption,
+                                            location: false,
+                                            guest: false,
+                                        });
                                     }}
                                 >
                                     <BiSearchAlt2 className={classes.icon} />
