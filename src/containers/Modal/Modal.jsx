@@ -13,6 +13,7 @@ const Modal = ({ isShow }) => {
         filters,
         updateFilters,
         updateFilterGuest,
+        totalGuests,
     } = useContext(RoomsContext);
 
     const [showOption, setShowOption] = useState({
@@ -75,6 +76,8 @@ const Modal = ({ isShow }) => {
                                         id="guest"
                                         name="guest"
                                         className={classes.input_text_guest}
+                                        value={totalGuests()}
+                                        onChange={() => totalGuests()}
                                         placeholder="Add guests"
                                         onClick={handleShowOptions}
                                     />

@@ -5,7 +5,7 @@ import logoImg from '../../../assets/images/logo.svg';
 import classes from './Header.module.css';
 
 const Header = () => {
-    const { filters, displayModal } = useContext(RoomsContext);
+    const { filters, displayModal, totalGuests } = useContext(RoomsContext);
 
     return (
         <header className={classes.header}>
@@ -25,7 +25,7 @@ const Header = () => {
                     type="text"
                     className={classes.input_text_guest}
                     placeholder="Add guests"
-                    // defaultValue={`Adults: ${filters.guest.adults}, Childrens: ${filters.guest.childrens}`}
+                    defaultValue={totalGuests()}
                     onClick={displayModal}
                 />
                 <button type="button">

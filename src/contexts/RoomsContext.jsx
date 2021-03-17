@@ -15,12 +15,14 @@ const RoomsContextProvider = ({ children }) => {
         },
     });
 
+    const totalGuests = () => {
+        const total = filters.guest.adults + filters.guest.childrens;
+        return total > 0 ? total : '';
+    };
+
     const updateRooms = () => {
         if (filters.location !== '') {
-            const params = [
-                ...filters.location.split(', '),
-                filters.guest.adults + filters.guest.childrens,
-            ];
+            const params = [...filters.location.split(', '), totalGuests()];
 
             const filteredRooms = stays.filter(
                 (room) =>
@@ -72,6 +74,7 @@ const RoomsContextProvider = ({ children }) => {
                 filters,
                 updateFilters,
                 updateFilterGuest,
+                totalGuests,
             }}
         >
             {children}
