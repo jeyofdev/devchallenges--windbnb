@@ -9,8 +9,14 @@ const RoomsList = () => {
     return (
         <div className={classes.rooms_list}>
             <div className={classes.header}>
-                <h1>Stays in Finland</h1>
-                <p className={classes.total}>{rooms.length}+ stays</p>
+                {rooms.length > 0 ? (
+                    <>
+                        <h1>Stays in Finland</h1>
+                        <p className={classes.total}>{rooms.length}+ stays</p>
+                    </>
+                ) : (
+                    <h1>No results</h1>
+                )}
             </div>
 
             {rooms.map((room) => (
