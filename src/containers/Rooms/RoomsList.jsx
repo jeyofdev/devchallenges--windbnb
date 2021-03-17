@@ -1,12 +1,18 @@
 import React, { useContext } from 'react';
 import { RoomsContext } from '../../contexts/RoomsContext';
 import Room from '../../components/Room/Room';
+import classes from './RoomsList.module.css';
 
 const RoomsList = () => {
     const { rooms } = useContext(RoomsContext);
 
     return (
-        <div className="rooms_list">
+        <div className={classes.rooms_list}>
+            <div className={classes.header}>
+                <h1>Stays in Finland</h1>
+                <p className={classes.total}>{rooms.length}+ stays</p>
+            </div>
+
             {rooms.map((room) => (
                 <Room
                     key={room.id}

@@ -1,27 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { GoStar } from 'react-icons/go';
+import classes from './Room.module.css';
 
 const Room = ({ photo, title, superHost, type, rating }) => {
     return (
-        <div className="room">
-            <div className="room_img">
-                <img src={photo} className="card_img_top" alt={title} />
+        <div className={classes.room}>
+            <div className={classes.room_img}>
+                <img src={photo} className={classes.card_img_top} alt={title} />
             </div>
-            <div className="room_body">
-                <div className="room_content">
-                    <div className="room_content_left">
+            <div className={classes.room_body}>
+                <div className={classes.room_content}>
+                    <div className={classes.room_content_left}>
                         {superHost && (
-                            <span className="room_host">Super host</span>
+                            <span className={classes.room_host}>
+                                Super host
+                            </span>
                         )}
-                        <p className="room_type">{type}</p>
+                        <p className={classes.room_type}>{type}</p>
                     </div>
-                    <div className="room_content_right">
-                        <GoStar className="room_rating_icon" />
-                        <p className="room_rating">{rating}</p>
+                    <div className={classes.room_content_right}>
+                        <GoStar className={classes.room_rating_icon} />
+                        <p className={classes.room_rating}>{rating}</p>
                     </div>
                 </div>
-                <h5 className="classes.room_title">{title}</h5>
+                <h5 className={classes.room_title}>{title}</h5>
             </div>
         </div>
     );

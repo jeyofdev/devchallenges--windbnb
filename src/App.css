@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Mulish:wght@400;700;800&display=swap');
+
+/* ====================
+    VARIABLES
+==================== */
+:root {
+    --gutter: 15px;
+
+    --color-dark: #333333;
+    --color-light: #4f4f4f;
+    --color-ultra-light: #828282;
+    --color-gray-100: #f2f2f2;
+    --color-gray-200: #bdbdbd;
+    --color-primary: rgba(235, 87, 87, 0.72);
+
+    --font-family-content: 'Montserrat', sans-serif;
+    --font-family-secondary: 'Mulish', sans-serif;
+    --font-style-content: normal;
+}
+
+/* ====================
+    CONTAINER
+==================== */
+.container {
+    position: relative;
+    width: 100%;
+    padding-right: var(--gutter);
+    padding-left: var(--gutter);
+    margin-top: 1.1rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
