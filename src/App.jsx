@@ -3,6 +3,7 @@ import RoomsList from './containers/Rooms/RoomsList';
 import Footer from './components/Ui/Footer/Footer';
 import './App.css';
 import Header from './components/Ui/Header/Header';
+import Modal from './components/Modal/Modal';
 
 const App = () => {
     return (
@@ -11,6 +12,7 @@ const App = () => {
                 <Header />
                 <RoomsList />
                 <Footer />
+                <Modal isShow />
             </div>
         </div>
     );
