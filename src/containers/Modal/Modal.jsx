@@ -16,6 +16,7 @@ const Modal = ({ isShow }) => {
         updateFilters,
         updateFilterGuest,
         totalGuests,
+        setHeaderIsShow,
     } = useContext(RoomsContext);
 
     const [showOption, setShowOption] = useState({
@@ -110,6 +111,7 @@ const Modal = ({ isShow }) => {
                                             location: false,
                                             guest: false,
                                         });
+                                        setHeaderIsShow(true);
                                     }}
                                 >
                                     <BiSearchAlt2 className={classes.icon} />

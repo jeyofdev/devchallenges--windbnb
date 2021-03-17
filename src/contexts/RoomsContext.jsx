@@ -15,6 +15,7 @@ const RoomsContextProvider = ({ children }) => {
             childrens: 0,
         },
     });
+    const [headerIsShow, setHeaderIsShow] = useState(true);
 
     const totalGuests = () => {
         const total = filters.guest.adults + filters.guest.childrens;
@@ -22,7 +23,10 @@ const RoomsContextProvider = ({ children }) => {
     };
 
     const updateRooms = () => {
-        if (filters.location !== '') {
+        if (
+            filters.location !== '' &&
+            filters.guest.adults + filters.guest.childrens > 0
+        ) {
             const params = [...filters.location.split(', '), totalGuests()];
 
             const filteredRooms = stays.filter(
@@ -30,6 +34,18 @@ const RoomsContextProvider = ({ children }) => {
                     room.city === params[0] &&
                     room.country === params[1] &&
                     room.maxGuests >= params[2]
+            );
+            setRooms(filteredRooms);
+        } else if (filters.location !== '') {
+            const params = [...filters.location.split(', ')];
+
+            const filteredRooms = stays.filter(
+                (room) => room.city === params[0] && room.country === params[1]
+            );
+            setRooms(filteredRooms);
+        } else if (filters.guest.adults + filters.guest.childrens > 0) {
+            const filteredRooms = stays.filter(
+                (room) => room.maxGuests >= totalGuests()
             );
             setRooms(filteredRooms);
         } else {
@@ -77,6 +93,8 @@ const RoomsContextProvider = ({ children }) => {
                 updateFilters,
                 updateFilterGuest,
                 totalGuests,
+                headerIsShow,
+                setHeaderIsShow,
             }}
         >
             {children}
