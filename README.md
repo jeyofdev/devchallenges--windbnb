@@ -64,5 +64,5 @@ $ yarn build
 
 ## Contact
 
-- Website [website](https://jeremy-gregoire.netlify.app/)
+- [website](https://jeremy-gregoire.netlify.app/)
 - GitHub [jeyofdev](https://github.com/jeyofdev)
