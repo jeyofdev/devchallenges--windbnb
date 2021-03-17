@@ -1,0 +1,12 @@
+.footer p {
+    font-weight: 500;
+    color: var(--color-ultra-light);
+    text-align: center;
+    margin-top: 101px;
+    margin-bottom: 26px;
+}
+
+.footer p a {
+    color: var(--color-ultra-light);
+    font-weight: 700;
+}
