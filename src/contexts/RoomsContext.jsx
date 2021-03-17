@@ -5,7 +5,7 @@ import stays from '../datas/stays.json';
 export const RoomsContext = createContext();
 
 const RoomsContextProvider = ({ children }) => {
-    const [rooms] = useState(stays);
+    const [rooms, setRooms] = useState(stays);
     const [modalIsShow, setModalIsShow] = useState(false);
     const [filters, setFilters] = useState({
         location: '',
@@ -14,6 +14,25 @@ const RoomsContextProvider = ({ children }) => {
             childrens: 0,
         },
     });
+
+    const updateRooms = () => {
+        if (filters.location !== '') {
+            const params = [
+                ...filters.location.split(', '),
+                filters.guest.adults + filters.guest.childrens,
+            ];
+
+            const filteredRooms = stays.filter(
+                (room) =>
+                    room.city === params[0] &&
+                    room.country === params[1] &&
+                    room.maxGuests >= params[2]
+            );
+            setRooms(filteredRooms);
+        } else {
+            setRooms(stays);
+        }
+    };
 
     const displayModal = () => {
         setModalIsShow(!modalIsShow);
@@ -47,6 +66,7 @@ const RoomsContextProvider = ({ children }) => {
         <RoomsContext.Provider
             value={{
                 rooms,
+                updateRooms,
                 modalIsShow,
                 displayModal,
                 filters,

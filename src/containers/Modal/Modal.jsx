@@ -9,6 +9,7 @@ import classes from './Modal.module.css';
 const Modal = ({ isShow }) => {
     const {
         displayModal,
+        updateRooms,
         filters,
         updateFilters,
         updateFilterGuest,
@@ -84,7 +85,10 @@ const Modal = ({ isShow }) => {
                                 <button
                                     type="button"
                                     className={classes.btn_search}
-                                    onClick={displayModal}
+                                    onClick={() => {
+                                        updateRooms();
+                                        displayModal();
+                                    }}
                                 >
                                     <BiSearchAlt2 className={classes.icon} />
                                     <span>Search</span>
