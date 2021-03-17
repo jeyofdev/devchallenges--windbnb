@@ -1,13 +1,15 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { GrClose } from 'react-icons/gr';
-import { FaMapMarkerAlt } from 'react-icons/fa';
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { RoomsContext } from '../../contexts/RoomsContext';
+import GuestOption from '../../components/Options/GuestOption/GuestOption';
 import classes from './Modal.module.css';
+import LocationOptionsList from '../LocationOptions/LocationOptionsList';
 
 const Modal = ({ isShow }) => {
     const {
+        allRooms,
         displayModal,
         updateRooms,
         filters,
@@ -105,50 +107,12 @@ const Modal = ({ isShow }) => {
                                     !showOption.location ? ' hide' : ''
                                 }`}
                             >
-                                <div className={classes.option}>
-                                    <FaMapMarkerAlt className={classes.icon} />
-                                    <button
-                                        type="button"
-                                        onClick={(e) =>
-                                            handleShowOptions(e, 'location')
-                                        }
-                                    >
-                                        Helsinki, Finland
-                                    </button>
-                                </div>
-                                <div className={classes.option}>
-                                    <FaMapMarkerAlt className={classes.icon} />
-                                    <button
-                                        type="button"
-                                        onClick={(e) =>
-                                            handleShowOptions(e, 'location')
-                                        }
-                                    >
-                                        Turku, Finland
-                                    </button>
-                                </div>
-                                <div className={classes.option}>
-                                    <FaMapMarkerAlt className={classes.icon} />
-                                    <button
-                                        type="button"
-                                        onClick={(e) =>
-                                            handleShowOptions(e, 'location')
-                                        }
-                                    >
-                                        Oulu, Finland
-                                    </button>
-                                </div>
-                                <div className={classes.option}>
-                                    <FaMapMarkerAlt className={classes.icon} />
-                                    <button
-                                        type="button"
-                                        onClick={(e) =>
-                                            handleShowOptions(e, 'location')
-                                        }
-                                    >
-                                        Vaasa, Finland
-                                    </button>
-                                </div>
+                                <LocationOptionsList
+                                    datas={allRooms}
+                                    handleShowOptions={(e) =>
+                                        handleShowOptions(e, 'location')
+                                    }
+                                />
                             </div>
 
                             <div
@@ -156,85 +120,33 @@ const Modal = ({ isShow }) => {
                                     !showOption.guest ? ' hide' : ''
                                 }`}
                             >
-                                <div className={classes.option}>
-                                    <h4>
-                                        Adults{' '}
-                                        <span className={classes.subtitle}>
-                                            Ages 13 or above
-                                        </span>
-                                    </h4>
+                                <GuestOption
+                                    title="Adults"
+                                    subtitle="Ages 13 or above"
+                                    value={filters.guest.adults}
+                                    increment={() =>
+                                        updateFilterGuest('adults', true)
+                                    }
+                                    decrement={() =>
+                                        updateFilterGuest('adults', false, true)
+                                    }
+                                />
 
-                                    <div className={classes.option_value}>
-                                        <button
-                                            type="button"
-                                            className={classes.btn_option}
-                                            onClick={() =>
-                                                updateFilterGuest(
-                                                    'adults',
-                                                    false,
-                                                    true
-                                                )
-                                            }
-                                        >
-                                            -
-                                        </button>
-                                        <p className={classes.content}>
-                                            {filters.guest.adults}
-                                        </p>
-                                        <button
-                                            type="button"
-                                            className={classes.btn_option}
-                                            onClick={() =>
-                                                updateFilterGuest(
-                                                    'adults',
-                                                    true
-                                                )
-                                            }
-                                        >
-                                            +
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div className={classes.option}>
-                                    <h4>
-                                        Childrens{' '}
-                                        <span className={classes.subtitle}>
-                                            Ages 2-12
-                                        </span>
-                                    </h4>
-
-                                    <div className={classes.option_value}>
-                                        <button
-                                            type="button"
-                                            className={classes.btn_option}
-                                            onClick={() =>
-                                                updateFilterGuest(
-                                                    'childrens',
-                                                    false,
-                                                    true
-                                                )
-                                            }
-                                        >
-                                            -
-                                        </button>
-                                        <p className={classes.content}>
-                                            {filters.guest.childrens}
-                                        </p>
-                                        <button
-                                            type="button"
-                                            className={classes.btn_option}
-                                            onClick={() =>
-                                                updateFilterGuest(
-                                                    'childrens',
-                                                    true
-                                                )
-                                            }
-                                        >
-                                            +
-                                        </button>
-                                    </div>
-                                </div>
+                                <GuestOption
+                                    title="Childrens"
+                                    subtitle="Ages 2-12"
+                                    value={filters.guest.childrens}
+                                    increment={() =>
+                                        updateFilterGuest('childrens', true)
+                                    }
+                                    decrement={() =>
+                                        updateFilterGuest(
+                                            'childrens',
+                                            false,
+                                            true
+                                        )
+                                    }
+                                />
                             </div>
                         </div>
                     </div>

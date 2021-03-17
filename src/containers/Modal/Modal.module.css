@@ -184,78 +184,9 @@
     padding: 0 26px;
 }
 
-/* ======================
-    LOCATION OPTIONS
-====================== */
-.modal .location_options .option {
-    display: flex;
-    margin-bottom: 36px;
-}
-
-.modal .location_options .option .icon {
-    color: var(--color-light);
-    width: 1.1rem;
-    height: 1.1rem;
-}
-
-.modal .location_options .option button {
-    background: transparent;
-    font-family: var(--font-family-secondary);
-    font-weight: normal;
-    font-size: 1rem;
-    line-height: 1.1;
-    color: var(--color-light);
-    margin-left: 10px;
-    border: none;
-    cursor: pointer;
-}
-
 /* ====================
     GUEST OPTIONS
 ==================== */
 .modal .guest_options {
     grid-column: 2;
-}
-
-.modal .guest_options .option {
-    margin-bottom: 52px;
-    grid-column: 2;
-}
-
-.modal .guest_options .option h4 {
-    font-family: var(--font-family-secondary);
-    font-size: 1rem;
-    line-height: 1.1;
-    margin-bottom: 15px;
-}
-
-.modal .guest_options .option h4 > span {
-    display: block;
-    color: var(--color-gray-200);
-    font-weight: normal;
-}
-
-.modal .guest_options .option .option_value {
-    display: flex;
-    align-items: center;
-}
-
-.modal .guest_options .option .option_value button {
-    border: 1px solid var(--color-ultra-light);
-    width: 23px;
-    height: 23px;
-    color: var(--color-ultra-light);
-    border-radius: 4px;
-}
-
-.modal .guest_options .option .option_value button:hover {
-    background: var(--color-ultra-light);
-    border: 1px solid var(--color-ultra-light);
-    color: var(--color-gray-100);
-}
-
-.modal .guest_options .option .option_value .content {
-    margin: 0 16px;
-    font-family: var(--font-family-secondary);
-    font-weight: bold;
 }

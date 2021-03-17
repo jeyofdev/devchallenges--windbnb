@@ -5,7 +5,8 @@ import stays from '../datas/stays.json';
 export const RoomsContext = createContext();
 
 const RoomsContextProvider = ({ children }) => {
-    const [rooms, setRooms] = useState(stays);
+    const [allRooms] = useState(stays);
+    const [rooms, setRooms] = useState(allRooms);
     const [modalIsShow, setModalIsShow] = useState(false);
     const [filters, setFilters] = useState({
         location: '',
@@ -67,6 +68,7 @@ const RoomsContextProvider = ({ children }) => {
     return (
         <RoomsContext.Provider
             value={{
+                allRooms,
                 rooms,
                 updateRooms,
                 modalIsShow,

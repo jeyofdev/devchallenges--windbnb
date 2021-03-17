@@ -1,0 +1,45 @@
+/* ====================
+    GUEST OPTIONS
+==================== */
+.guest_option {
+    margin-bottom: 52px;
+    grid-column: 2;
+}
+
+.guest_option h4 {
+    font-family: var(--font-family-secondary);
+    font-size: 1rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.guest_option h4 > span {
+    display: block;
+    color: var(--color-gray-200);
+    font-weight: normal;
+}
+
+.guest_option .option_value {
+    display: flex;
+    align-items: center;
+}
+
+.guest_option .option_value button {
+    border: 1px solid var(--color-ultra-light);
+    width: 23px;
+    height: 23px;
+    color: var(--color-ultra-light);
+    border-radius: 4px;
+}
+
+.guest_option .option_value button:hover {
+    background: var(--color-ultra-light);
+    border: 1px solid var(--color-ultra-light);
+    color: var(--color-gray-100);
+}
+
+.guest_option .option_value .content {
+    margin: 0 16px;
+    font-family: var(--font-family-secondary);
+    font-weight: bold;
+}
