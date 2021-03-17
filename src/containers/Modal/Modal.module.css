@@ -14,9 +14,12 @@
 
 @media (max-width: 768px) {
     .modal {
+        position: fixed;
         bottom: 0;
-        right: var(--gutter);
-        left: var(--gutter);
+        width: 100%;
+        height: 100vh;
+        padding: 1.1rem 0.9375rem;
+        overflow: hidden;
     }
 
     .modal .container {
@@ -187,6 +190,8 @@
 /* ====================
     GUEST OPTIONS
 ==================== */
-.modal .guest_options {
-    grid-column: 2;
+@media (min-width: 768px) {
+    .modal .guest_options {
+        grid-column: 2;
+    }
 }

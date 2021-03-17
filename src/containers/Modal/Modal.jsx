@@ -25,10 +25,19 @@ const Modal = ({ isShow }) => {
 
     const handleShowOptions = (e, name = null) => {
         if (name === null) {
-            setShowOption({
-                ...showOption,
-                [e.target.name]: !showOption[e.target.name],
-            });
+            if (e.target.name === 'location') {
+                setShowOption({
+                    ...showOption,
+                    location: true,
+                    guest: false,
+                });
+            } else if (e.target.name === 'guest') {
+                setShowOption({
+                    ...showOption,
+                    location: false,
+                    guest: true,
+                });
+            }
         } else {
             setShowOption({
                 ...showOption,
@@ -50,7 +59,10 @@ const Modal = ({ isShow }) => {
                         <div className={classes.modal_header}>
                             <h4>Edit your search</h4>
                             <button type="button">
-                                <GrClose className={classes.icon} />
+                                <GrClose
+                                    className={classes.icon}
+                                    onClick={displayModal}
+                                />
                             </button>
                         </div>
 
