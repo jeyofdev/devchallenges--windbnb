@@ -6,9 +6,24 @@ export const RoomsContext = createContext();
 
 const RoomsContextProvider = ({ children }) => {
     const [rooms] = useState(stays);
+    const [modalIsShow, setModalIsShow] = useState(false);
+    const [filters, setFilters] = useState({
+        location: '',
+        guest: '',
+    });
+
+    const displayModal = () => {
+        setModalIsShow(!modalIsShow);
+    };
+
+    const updateFilters = (name, value) => {
+        setFilters({ ...filters, [name]: value });
+    };
 
     return (
-        <RoomsContext.Provider value={{ rooms }}>
+        <RoomsContext.Provider
+            value={{ rooms, modalIsShow, displayModal, filters, updateFilters }}
+        >
             {children}
         </RoomsContext.Provider>
     );

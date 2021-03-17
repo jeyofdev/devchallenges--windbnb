@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { RoomsContext } from './contexts/RoomsContext';
+import Header from './components/Ui/Header/Header';
 import RoomsList from './containers/Rooms/RoomsList';
 import Footer from './components/Ui/Footer/Footer';
-import './App.css';
-import Header from './components/Ui/Header/Header';
 import Modal from './components/Modal/Modal';
+import './App.css';
 
 const App = () => {
+    const { modalIsShow } = useContext(RoomsContext);
+
     return (
         <div className="App">
             <div className="container">
                 <Header />
                 <RoomsList />
                 <Footer />
-                <Modal isShow />
+                <Modal isShow={modalIsShow} />
             </div>
         </div>
     );

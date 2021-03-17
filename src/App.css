@@ -47,3 +47,7 @@
         max-width: 1140px;
     }
 }
+
+.hide {
+    display: none;
+}
