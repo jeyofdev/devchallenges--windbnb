@@ -25,7 +25,7 @@ const Header = () => {
                     type="text"
                     className={classes.input_text_guest}
                     placeholder="Add guests"
-                    defaultValue={filters.guest}
+                    // defaultValue={`Adults: ${filters.guest.adults}, Childrens: ${filters.guest.childrens}`}
                     onClick={displayModal}
                 />
                 <button type="button">

@@ -3,7 +3,7 @@ import { RoomsContext } from './contexts/RoomsContext';
 import Header from './components/Ui/Header/Header';
 import RoomsList from './containers/Rooms/RoomsList';
 import Footer from './components/Ui/Footer/Footer';
-import Modal from './components/Modal/Modal';
+import Modal from './containers/Modal/Modal';
 import './App.css';
 
 const App = () => {

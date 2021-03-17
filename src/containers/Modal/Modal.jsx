@@ -7,7 +7,12 @@ import { RoomsContext } from '../../contexts/RoomsContext';
 import classes from './Modal.module.css';
 
 const Modal = ({ isShow }) => {
-    const { displayModal, filters, updateFilters } = useContext(RoomsContext);
+    const {
+        displayModal,
+        filters,
+        updateFilters,
+        updateFilterGuest,
+    } = useContext(RoomsContext);
 
     const [showOption, setShowOption] = useState({
         location: false,
@@ -70,8 +75,6 @@ const Modal = ({ isShow }) => {
                                         name="guest"
                                         className={classes.input_text_guest}
                                         placeholder="Add guests"
-                                        value={filters.guest}
-                                        onChange={handleChange}
                                         onClick={handleShowOptions}
                                     />
                                 </label>
@@ -158,13 +161,28 @@ const Modal = ({ isShow }) => {
                                         <button
                                             type="button"
                                             className={classes.btn_option}
+                                            onClick={() =>
+                                                updateFilterGuest(
+                                                    'adults',
+                                                    false,
+                                                    true
+                                                )
+                                            }
                                         >
                                             -
                                         </button>
-                                        <p className={classes.content}>0</p>
+                                        <p className={classes.content}>
+                                            {filters.guest.adults}
+                                        </p>
                                         <button
                                             type="button"
                                             className={classes.btn_option}
+                                            onClick={() =>
+                                                updateFilterGuest(
+                                                    'adults',
+                                                    true
+                                                )
+                                            }
                                         >
                                             +
                                         </button>
@@ -173,7 +191,7 @@ const Modal = ({ isShow }) => {
 
                                 <div className={classes.option}>
                                     <h4>
-                                        Children{' '}
+                                        Childrens{' '}
                                         <span className={classes.subtitle}>
                                             Ages 2-12
                                         </span>
@@ -183,13 +201,28 @@ const Modal = ({ isShow }) => {
                                         <button
                                             type="button"
                                             className={classes.btn_option}
+                                            onClick={() =>
+                                                updateFilterGuest(
+                                                    'childrens',
+                                                    false,
+                                                    true
+                                                )
+                                            }
                                         >
                                             -
                                         </button>
-                                        <p className={classes.content}>0</p>
+                                        <p className={classes.content}>
+                                            {filters.guest.childrens}
+                                        </p>
                                         <button
                                             type="button"
                                             className={classes.btn_option}
+                                            onClick={() =>
+                                                updateFilterGuest(
+                                                    'childrens',
+                                                    true
+                                                )
+                                            }
                                         >
                                             +
                                         </button>

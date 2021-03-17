@@ -9,7 +9,10 @@ const RoomsContextProvider = ({ children }) => {
     const [modalIsShow, setModalIsShow] = useState(false);
     const [filters, setFilters] = useState({
         location: '',
-        guest: '',
+        guest: {
+            adults: 0,
+            childrens: 0,
+        },
     });
 
     const displayModal = () => {
@@ -20,9 +23,36 @@ const RoomsContextProvider = ({ children }) => {
         setFilters({ ...filters, [name]: value });
     };
 
+    const updateFilterGuest = (name, increment = false, decrement = false) => {
+        if (increment && !decrement) {
+            setFilters({
+                ...filters,
+                guest: {
+                    ...filters.guest,
+                    [name]: filters.guest[name] + 1,
+                },
+            });
+        } else if (!increment && decrement && filters.guest[name] > 0) {
+            setFilters({
+                ...filters,
+                guest: {
+                    ...filters.guest,
+                    [name]: filters.guest[name] - 1,
+                },
+            });
+        }
+    };
+
     return (
         <RoomsContext.Provider
-            value={{ rooms, modalIsShow, displayModal, filters, updateFilters }}
+            value={{
+                rooms,
+                modalIsShow,
+                displayModal,
+                filters,
+                updateFilters,
+                updateFilterGuest,
+            }}
         >
             {children}
         </RoomsContext.Provider>
