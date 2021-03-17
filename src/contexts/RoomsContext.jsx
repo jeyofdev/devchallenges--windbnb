@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import stays from '../datas/stays.json';
 
-const RoomsContext = createContext();
+export const RoomsContext = createContext();
 
 const RoomsContextProvider = ({ children }) => {
     const [rooms] = useState(stays);
