@@ -62,7 +62,10 @@ const Modal = ({ isShow }) => {
                             <button type="button">
                                 <GrClose
                                     className={classes.icon}
-                                    onClick={displayModal}
+                                    onClick={() => {
+                                        displayModal();
+                                        setHeaderIsShow(true);
+                                    }}
                                 />
                             </button>
                         </div>
